@@ -6,8 +6,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh"Hash=$(git log -1)"
-                sh"Branch=$(git branch)"
                 sh"echo "Git Hash: $(Hash)""
+                sh"Branch=$(git branch)"
                 sh"echo "Git Branch : $(Branch)""
             }
         }
