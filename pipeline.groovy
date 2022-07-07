@@ -8,7 +8,7 @@ pipeline {
                 Hash=$(git log -1)
                 Branch=$(git branch)
                 echo "Git Hash: $Hash"
-                echo "Git Branch : ${Branch}"
+                echo "Git Branch : $Branch"
             }
         }
         stage('Test') {
