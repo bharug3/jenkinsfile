@@ -5,10 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                Hash=$(git log -1)
-                Branch=$(git branch)
-                echo "Git Hash: $Hash"
-                echo "Git Branch : $Branch"
+                sh"Hash=$(git log -1)"
+                sh"Branch=$(git branch)"
+                sh"echo "Git Hash: $Hash""
+                sh"echo "Git Branch : $Branch""
             }
         }
         stage('Test') {
