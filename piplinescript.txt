@@ -7,8 +7,9 @@ pipeline {
 		   Branch = sh (returnStdout: true, script: 'git branch | grep -e "^*" | cut -f 2' )
                   }
             steps {
-                sh 'echo $Hash_ID'
-		sh 'echo $Branch'
+                sh 'echo Hash_ID = $Hash_ID'
+		sh 'echo Branch = $Branch'
+		sh 'env'
                 }
         }
     }
