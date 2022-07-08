@@ -4,8 +4,10 @@ pipeline {
         stage('Initialization') {
             environment { 
                    Hash_ID = sh (returnstdout: true, script: "git log -1").trim()
+		  }
             steps {
                 sh 'echo $Hash_ID'
+		}
         }
     }
 }
