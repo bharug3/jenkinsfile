@@ -1,6 +1,19 @@
-node {
-    branchHash = sh(
-        script: "echo value is: $( git ls-remote "${https://github.com/bharug3/jenkinsfile.git} && refs/heads/${env.MAIN}" | cut -f1 )",
-        returnStdout: true
-    ).trim()
+pipeline {
+    agent any
+    tools {
+        git 'git'
+    }
+    stages {
+        stage('Initialization') {
+            environment { 
+                   Hash_ID = sh (returnstdout: true, script: "git log -1").trim()
+                   Branch_NAME = sh (returnstdout: true, script: "git branch").trim()
+            }
+            steps {
+                sh 'echo $Hash_ID'
+                sh 'echo $Branch_NAME'
+            }
+        }
+    }
 }
+
