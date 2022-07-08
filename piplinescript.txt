@@ -4,9 +4,11 @@ pipeline {
         stage('Initialization') {
             environment {
                    Hash_ID = sh (returnStdout: true, script: 'git log --format="%H" -n 1')
+		   Branch = sh (returnStdout: true, script 'git branch --show-current' )
                   }
             steps {
                 sh 'echo $Hash_ID'
+		sh 'echo $Branch'
                 }
         }
     }
