@@ -1,13 +1,13 @@
-pipeline {
+pipeline {
     agent any
     stages {
         stage('Initialization') {
-            environment { 
-                   Hash_ID = sh (returnstdout: true, script: "git log -1").trim()
-		  }
+            environment {
+                   Hash_ID = sh ( git log -1 )
+                  }
             steps {
                 sh 'echo $Hash_ID'
-		}
+                }
         }
     }
 }
