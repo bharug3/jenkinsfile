@@ -4,7 +4,7 @@ pipeline {
         stage('Initialization') {
             environment {
                    Hash_ID = sh (returnStdout: true, script: 'git log --format="%H" -n 1')
-		   Branch = sh (returnStdout: true, script: 'git branch | grep -e "^*" | cut -d' ' -f 2' )
+		   Branch = sh (returnStdout: true, script: 'git branch | grep -e "^*" | cut -f 2' )
                   }
             steps {
                 sh 'echo $Hash_ID'
