@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Initialization') {
             environment {
-                   Hash_ID = sh ( git log -1 )
+                   Hash_ID = sh"git log -1"
                   }
             steps {
                 sh 'echo $Hash_ID'
