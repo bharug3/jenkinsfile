@@ -1,0 +1,9 @@
+repoUrl = 'https://github.com/bharug3/jenkinsfile.git'
+node {
+    branchHash = sh(
+        script: "echo -n \$( git ls-remote ${https://github.com/bharug3/jenkinsfile.git} refs/heads/${env.MAIN} | cut -f1 )",
+        returnStdout: true
+    ).trim()
+}
+
+pipeline {}
